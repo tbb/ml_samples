@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie comment classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h2>Please, enter your comment:</h2>
+    {% from "_formshelper.html" import render_field %}
+    <form action="/results" method="POST">
+        <dl>
+            {{ render_field(form.movie_review, cols='30', rows='10') }}
+        </dl>
+        <div>
+            <input type="submit" value="Submit comment" name="submit_button">
+        </div>
+    </form>
+</body>
+
+</html>

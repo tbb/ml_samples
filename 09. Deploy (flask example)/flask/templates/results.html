@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie comment classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h3>Your comment:</h3>
+    <div>{{ content }}</div>
+
+    <h3>Prediction:</h3>
+    <div>
+        The comment is <strong>{{ prediction }}</strong>
+        (with probability: {{ probability }}%)
+    </div>
+
+    <div class="button">
+        <form action="/thanks" method="POST">
+            <input type="submit" value="Right" name="feedback_button">
+            <input type="submit" value="Wrong" name="feedback_button">
+            <input type="hidden" value='{{ prediction }}' name="prediction">
+            <input type="hidden" value='{{ content }}' name="review">
+        </form>
+    </div>
+
+    <div class="button">
+        <form action="/">
+            <input type="submit" value="Another one">
+        </form>
+    </div>
+</body>
+
+</html>
